@@ -13,4 +13,6 @@ class Produto:
     
 
     def mostrar_dados(self):
-        print(p.nome, p.quantidade)
+        print(f"\nNome:{self.nome}")
+        print (f"quantidade:{self.quantidade}\n")
+

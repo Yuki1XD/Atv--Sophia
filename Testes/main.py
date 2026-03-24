@@ -27,4 +27,5 @@ if atualizar_estoque:
 else:
     print("Produto não encontrado")
 
+
 estoque.listar_produtos()
