@@ -1,31 +1,21 @@
-from models.produtos import Produto
-from services.estoque import Estoque
+from services.estoque import executar_rotas
 
-estoque = Estoque()
+print(executar_rotas("/produtos", "Post", {"nome": "PI do 5 periodo", "quantidade": 0}))
 
-p1 = Produto("Mouse", 10)
-p2 = Produto("Teclado", 18)
+print(executar_rotas("/produtos", "Post", {"nome": "PI do 5 periodo", "quantidade": 2}))
 
+print(executar_rotas("/produtos", "Post", {"nome": "PI do 2 periodo", "quantidade": 3}))
 
+print(executar_rotas("/produtos", "Get"))
 
-estoque.adicionar_produto(p1)
-estoque.adicionar_produto(p2)
+print(executar_rotas("/produtos/buscar", "Get", {"nome": "PI do 5 periodo"}))
 
+print(executar_rotas("/produtos/atualizar", "Put", {"nome": "PI do 5 periodo", "quantidade": 5}))
 
-produto_encontrado = estoque.buscar_produto("mouse")
+print(executar_rotas("/produtos", "Get"))
 
-if produto_encontrado:
-    print("Produto encontrado")
-else:
-    print("Produto não encontrado")
+print(executar_rotas("/produtos/delete", "Delete", {"nome": "PI do 5 periodo"}))
 
-
-atualizar_estoque = estoque.atualizar_quantidade("mouse", 13)
-
-if atualizar_estoque:
-    print("Quantidade atualizada com sucesso")
-else:
-    print("Produto não encontrado")
+print(executar_rotas("/produtos", "Get"))
 
 
-estoque.listar_produtos()
